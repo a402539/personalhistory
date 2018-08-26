@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>sprite78</title>
+</head>
+<body>
+<canvas id="sprite78" width="24" height="26" style="border:2px solid #cccccc;"></canvas>
+<script src=".\sprite78\jaf.js"></script>
+<script>
+ST('sprite78', function(_f) {
+    _f.setFps(25);
+    _f.defaults.debug = false;
+    _f.loop = true;
+    // Create sprite: sprite77
+    var sprite77 = new movieclip('sprite77', 31, true);
+    var l0 = sprite77.layer('l0', 0);
+    l0.frameclip('t0', 0, 13, 1)
+    .shape('shape66', './sprite78/shape66.svg', 'svg', 0, 0, 1, 0)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, -117, 0])
+    .key(13, [1, 0, 0, 1, -117, 0]);
+
+    l0.frameclip('t1', 14, 29, 1)
+    .
+    .track('mx')
+    .key(14, [1, 0, 0, 1, 0, 0])
+    .key(29, [1, 0, 0, 1, 0, 0]);
+
+    var l1 = sprite77.layer('l1', 1);
+    l1.frameclip('t0', 0, 13, 1)
+    .
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 0, 0])
+    .key(13, [1, 0, 0, 1, 0, 0]);
+
+    l1.frameclip('t1', 14, 29, 1)
+    .shape('shape66', './sprite78/shape66.svg', 'svg', 0, 0, 1, 0)
+    .track('mx')
+    .key(14, [1, 0, 0, 1, 0, 0])
+    .key(29, [1, 0, 0, 1, 0, 0]);
+
+    var l2 = sprite77.layer('l2', 2);
+    l2.frameclip('t0', 0, 3, 1)
+    .
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 0, 0])
+    .key(3, [1, 0, 0, 1, 0, 0]);
+
+    l2.frameclip('t1', 4, 8, 1)
+    .
+    .track('mx')
+    .key(4, [1, 0, 0, 1, 0, 0])
+    .key(8, [1, 0, 0, 1, 0, 0]);
+
+    l2.frameclip('t2', 9, 13, 1)
+    .
+    .track('mx')
+    .key(9, [1, 0, 0, 1, 0, 0])
+    .key(13, [1, 0, 0, 1, 0, 0]);
+
+    l2.frameclip('t3', 14, 14, 1)
+    .shape('shape72', './sprite78/shape72.svg', 'svg', 0, 0, 1, 0)
+    .track('mx')
+    .key(14, [1, 0, 0, 1, 0, 0]);
+
+    l2.frameclip('t4', 15, 19, 1)
+    .
+    .track('mx')
+    .key(15, [1, 0, 0, 1, 0, 0])
+    .key(19, [1, 0, 0, 1, 0, 0]);
+
+    l2.frameclip('t5', 20, 25, 1)
+    .
+    .track('mx')
+    .key(20, [1, 0, 0, 1, 0, 0])
+    .key(25, [1, 0, 0, 1, 0, 0]);
+
+    l2.frameclip('t6', 26, 29, 1)
+    .
+    .track('mx')
+    .key(26, [1, 0, 0, 1, 0, 0])
+    .key(29, [1, 0, 0, 1, 0, 0]);
+
+    l2.frameclip('t7', 30, 30, 1)
+    .shape('shape76', './sprite78/shape76.svg', 'svg', 0, 0, 1, 0)
+    .track('mx')
+    .key(30, [1, 0, 0, 1, 0, 0]);
+
+
+    // Create sprite: mm
+    var mm = new movieclip('mm', 1, true);
+    var l0 = mm.layer('l0', 0);
+    l0.frameclip('t0', 0, 0, 1)
+    .sprite('sprite77', sprite77)
+    .track('mx')
+    .key(0, [0.106812, 0, 0, 0.106644, 13, 16]);
+
+
+
+    _f.mc(mm);
+    _f.start();
+});
+</script>
+</body>
+</html>

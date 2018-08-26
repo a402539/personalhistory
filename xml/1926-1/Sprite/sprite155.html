@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>sprite155</title>
+</head>
+<body>
+<canvas id="sprite155" width="0" height="0" style="border:2px solid #cccccc;"></canvas>
+<script src=".\sprite155\jaf.js"></script>
+<script>
+ST('sprite155', function(_f) {
+    _f.setFps(25);
+    _f.defaults.debug = false;
+    _f.loop = true;
+    // Create sprite: mm
+    var mm = new movieclip('mm', 0, true);
+
+
+    _f.mc(mm);
+    _f.start();
+});
+</script>
+</body>
+</html>

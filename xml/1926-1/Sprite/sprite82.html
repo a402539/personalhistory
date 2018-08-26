@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>sprite82</title>
+</head>
+<body>
+<canvas id="sprite82" width="100" height="6" style="border:2px solid #cccccc;"></canvas>
+<script src=".\sprite82\jaf.js"></script>
+<script>
+ST('sprite82', function(_f) {
+    _f.setFps(25);
+    _f.defaults.debug = false;
+    _f.loop = true;
+    // Create sprite: sprite81
+    var sprite81 = new movieclip('sprite81', 1, true);
+    var l0 = sprite81.layer('l0', 0);
+    l0.frameclip('t0', 0, 0, 1)
+    .shape('shape80', './sprite82/shape80.svg', 'svg', 0, 0, 1, 0)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 0, 0]);
+
+
+    // Create sprite: mm
+    var mm = new movieclip('mm', 1, true);
+    var l0 = mm.layer('l0', 0);
+    l0.frameclip('t0', 0, 0, 1)
+    .shape('shape79', './sprite82/shape79.svg', 'svg', 0, 0, 1, 0)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 50, 3]);
+
+    var l1 = mm.layer('l1', 1);
+    l1.frameclip('t0', 0, 0, 1)
+    .sprite('sprite81', sprite81)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 1, 1]);
+
+    var l2 = mm.layer('l2', 2);
+
+
+    _f.mc(mm);
+    _f.start();
+});
+</script>
+</body>
+</html>

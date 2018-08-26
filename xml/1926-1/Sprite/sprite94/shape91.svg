@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+width="550px" height="400px"
+xml:space="preserve">
+<g id="ShapeID_6063" transform="matrix(1, 0, 0, 1, 0, 0)" >
+ <clipPath  id="PathID13414_ClipPathURL" clip-rule="nonzero">
+<path d="M0.8 -8L0.8 -3L3.3 -7.35L4.7 -6.55L2.2 -2.2L6.55 -4.7L7.35 -3.3L3 -0.8L8 -0.8L8 0.8L3 0.8L7.35 3.3L6.55 4.7L2.2 2.2L4.7 6.55L3.3 7.35L0.8 3L0.8 8L-0.8 8L-0.8 3L-3.3 7.35L-4.7 6.55L-2.2 2.2L-6.5 4.7L-7.3 3.3L-3 0.8L-8 0.8L-8 -0.8L-3 -0.8L-7.35 -3.3L-6.55 -4.7L-2.2 -2.2L-4.7 -6.55L-3.3 -7.35L-0.8 -3L-0.8 -8L0.8 -8M0.8 -3L2.2 -2.2L4.7 -6.55L3.3 -7.35L0.8 -3M7.35 -3.3L6.55 -4.7L2.2 -2.2L3 -0.8L7.35 -3.3M-0.8 -8L-0.8 -3L0.8 -3L0.8 -8L-0.8 -8M8 0.8L8 -0.8L3 -0.8L3 0.8L8 0.8M-4.7 -6.55L-2.2 -2.2L-0.8 -3L-3.3 -7.35L-4.7 -6.55M6.55 4.7L7.35 3.3L3 0.8L2.2 2.2L6.55 4.7M-7.35 -3.3L-3 -0.8L-2.2 -2.2L-6.55 -4.7L-7.35 -3.3M3.3 7.35L4.7 6.55L2.2 2.2L0.8 3L3.3 7.35M-8 0.8L-3 0.8L-3 -0.8L-8 -0.8L-8 0.8M-0.8 8L0.8 8L0.8 3L-0.8 3L-0.8 8M-2.2 2.2L-4.7 6.55L-3.3 7.35L-0.8 3L-2.2 2.2M-6.5 4.7L-2.2 2.2L-3 0.8L-7.3 3.3L-6.5 4.7"/>
+</clipPath>
+<path 
+style="clip-path:url(#PathID13414_ClipPathURL);fill:#FFFFFF;fill-opacity:1" d="M0.8 -8L0.8 -3L3.3 -7.35L4.7 -6.55L2.2 -2.2L6.55 -4.7L7.35 -3.3L3 -0.8L8 -0.8L8 0.8L3 0.8L7.35 3.3L6.55 4.7L2.2 2.2L4.7 6.55L3.3 7.35L0.8 3L0.8 8L-0.8 8L-0.8 3L-3.3 7.35L-4.7 6.55L-2.2 2.2L-6.5 4.7L-7.3 3.3L-3 0.8L-8 0.8L-8 -0.8L-3 -0.8L-7.35 -3.3L-6.55 -4.7L-2.2 -2.2L-4.7 -6.55L-3.3 -7.35L-0.8 -3L-0.8 -8L0.8 -8" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M0.8 -3L2.2 -2.2L4.7 -6.55L3.3 -7.35L0.8 -3" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M7.35 -3.3L6.55 -4.7L2.2 -2.2L3 -0.8L7.35 -3.3" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M-0.8 -8L-0.8 -3L0.8 -3L0.8 -8L-0.8 -8" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M8 0.8L8 -0.8L3 -0.8L3 0.8L8 0.8" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M-4.7 -6.55L-2.2 -2.2L-0.8 -3L-3.3 -7.35L-4.7 -6.55" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M6.55 4.7L7.35 3.3L3 0.8L2.2 2.2L6.55 4.7" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M-7.35 -3.3L-3 -0.8L-2.2 -2.2L-6.55 -4.7L-7.35 -3.3" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M3.3 7.35L4.7 6.55L2.2 2.2L0.8 3L3.3 7.35" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M-8 0.8L-3 0.8L-3 -0.8L-8 -0.8L-8 0.8" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M-0.8 8L0.8 8L0.8 3L-0.8 3L-0.8 8" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M-2.2 2.2L-4.7 6.55L-3.3 7.35L-0.8 3L-2.2 2.2" />
+<path 
+style="fill:#FFFFFF;fill-opacity:1" d="M-6.5 4.7L-2.2 2.2L-3 0.8L-7.3 3.3L-6.5 4.7" />
+</g>
+</svg>

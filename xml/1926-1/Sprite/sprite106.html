@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>sprite106</title>
+</head>
+<body>
+<canvas id="sprite106" width="0" height="0" style="border:2px solid #cccccc;"></canvas>
+<script src=".\sprite106\jaf.js"></script>
+<script>
+ST('sprite106', function(_f) {
+    _f.setFps(25);
+    _f.defaults.debug = false;
+    _f.loop = true;
+    // Create sprite: mm
+    var mm = new movieclip('mm', 0, true);
+
+
+    _f.mc(mm);
+    _f.start();
+});
+</script>
+</body>
+</html>

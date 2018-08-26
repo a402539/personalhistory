@@ -1,0 +1,15 @@
+document.getElementById("ufio").onclick = function(){
+	if (usercase != 'fio'){ window.location.replace('?fio'); }
+}
+document.getElementById("upost").onclick = function(){
+	if (usercase != 'post'){ window.location.replace('?post'); }
+}
+document.getElementById("uwage").onclick = function(){
+	if (usercase != 'wage'){ window.location.replace('?wage'); }
+}
+document.getElementById("uexp").onclick = function(){
+	if (usercase != 'exp'){ window.location.replace('?exp'); }
+}
+document.getElementById("uage").onclick = function(){
+	if (usercase != 'age'){ window.location.replace('?age'); }
+}

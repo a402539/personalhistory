@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+width="550px" height="400px"
+xml:space="preserve">
+<g id="ShapeID_6027" transform="matrix(1, 0, 0, 1, 0, 0)" >
+ <clipPath  id="PathID13285_ClipPathURL" clip-rule="nonzero">
+<path d="M0 3L0 0L102 0L102 3L0 3M1 1L1 2L101 2L101 1L1 1"/>
+</clipPath>
+<path 
+style="clip-path:url(#PathID13285_ClipPathURL);fill:#000000;fill-opacity:1" d="M0 3L0 0L102 0L102 3L0 3" />
+</g>
+</svg>

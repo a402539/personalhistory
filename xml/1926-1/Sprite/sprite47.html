@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>sprite47</title>
+</head>
+<body>
+<canvas id="sprite47" width="102" height="3" style="border:2px solid #cccccc;"></canvas>
+<script src=".\sprite47\jaf.js"></script>
+<script>
+ST('sprite47', function(_f) {
+    _f.setFps(25);
+    _f.defaults.debug = false;
+    _f.loop = true;
+    // Create sprite: sprite44
+    var sprite44 = new movieclip('sprite44', 1, true);
+    var l0 = sprite44.layer('l0', 0);
+    l0.frameclip('t0', 0, 0, 1)
+    .shape('shape43', './sprite47/shape43.svg', 'svg', 0, 0, 1, 0)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 0, 0]);
+
+
+    // Create sprite: sprite46
+    var sprite46 = new movieclip('sprite46', 1, true);
+    var l0 = sprite46.layer('l0', 0);
+    l0.frameclip('t0', 0, 0, 1)
+    .shape('shape45', './sprite47/shape45.svg', 'svg', 0, 0, 1, 0)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 0, 0]);
+
+
+    // Create sprite: mm
+    var mm = new movieclip('mm', 1, true);
+    var l0 = mm.layer('l0', 0);
+    l0.frameclip('t0', 0, 0, 1)
+    .sprite('sprite44', sprite44)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 0, 0]);
+
+    var l1 = mm.layer('l1', 1);
+    l1.frameclip('t0', 0, 0, 1)
+    .sprite('sprite46', sprite46)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 1, 1]);
+
+    var l2 = mm.layer('l2', 2);
+
+
+    _f.mc(mm);
+    _f.start();
+});
+</script>
+</body>
+</html>

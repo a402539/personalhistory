@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>sprite65</title>
+</head>
+<body>
+<canvas id="sprite65" width="59" height="11" style="border:2px solid #cccccc;"></canvas>
+<script src=".\sprite65\jaf.js"></script>
+<script>
+ST('sprite65', function(_f) {
+    _f.setFps(25);
+    _f.defaults.debug = false;
+    _f.loop = true;
+    // Create sprite: sprite61
+    var sprite61 = new movieclip('sprite61', 1, true);
+    var l0 = sprite61.layer('l0', 0);
+    l0.frameclip('t0', 0, 0, 1)
+    .shape('shape60', './sprite65/shape60.svg', 'svg', 0, 0, 1, 0)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 30, 5]);
+
+
+    // Create sprite: sprite62
+    var sprite62 = new movieclip('sprite62', 1, true);
+    var l0 = sprite62.layer('l0', 0);
+    l0.frameclip('t0', 0, 0, 1)
+    .shape('shape60', './sprite65/shape60.svg', 'svg', 0, 0, 1, 0)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 0, 0]);
+
+
+    // Create sprite: sprite64
+    var sprite64 = new movieclip('sprite64', 1, true);
+    var l0 = sprite64.layer('l0', 0);
+    l0.frameclip('t0', 0, 0, 1)
+    .shape('shape63', './sprite65/shape63.svg', 'svg', 0, 0, 1, 0)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 0, 0]);
+
+
+    // Create sprite: mm
+    var mm = new movieclip('mm', 1, true);
+    var l0 = mm.layer('l0', 0);
+    l0.frameclip('t0', 0, 0, 1)
+    .sprite('sprite61', sprite61)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 0, 0]);
+
+    var l1 = mm.layer('l1', 1);
+    l1.frameclip('t0', 0, 0, 1)
+    .sprite('sprite62', sprite62)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 30, 5]);
+
+    var l2 = mm.layer('l2', 2);
+    l2.frameclip('t0', 0, 0, 1)
+    .sprite('sprite64', sprite64)
+    .track('mx')
+    .key(0, [1, 0, 0, 1, 0, 0]);
+
+    var l3 = mm.layer('l3', 3);
+
+
+    _f.mc(mm);
+    _f.start();
+});
+</script>
+</body>
+</html>
