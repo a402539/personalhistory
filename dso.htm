@@ -1,0 +1,177 @@
+<html>
+<head>
+<script>
+function Move(where)
+{
+  var size=10;
+  rs=DSO.recordset;
+  if(rs.RecordCount<2) return;
+  switch (where) {
+  	case 1:
+  	 rs.AbsolutePosition=2;
+     if(rs.AbsolutePosition<2) rs.AbsolutePosition=2;
+  	 break;
+  	case 2:
+     if(rs.AbsolutePosition<2) rs.AbsolutePosition=2;
+     if(rs.AbsolutePosition>size+1) rs.AbsolutePosition-=size;
+  	 break;
+  	case 3:
+     if(rs.AbsolutePosition<=rs.RecordCount-size) rs.AbsolutePosition+=size;
+  	 break;
+  	case 4:
+  	 if(rs.RecordCount>size) rs.AbsolutePosition=rs.RecordCount-size+1;
+     else rs.AbsolutePosition=2;
+  	 break;
+    default:return;
+  };
+  t=document.getElementById('tbody');
+  while (t.rows.length>0)	{t.deleteRow(0);};
+  for (j=0;!rs.EOF & j<size;rs.moveNext(),j++)
+  {
+ 	 tr=t.insertRow(t.rows.length);
+ 	 td=tr.insertCell(tr.cells.length);td.innerText=rs.AbsolutePosition-1;
+   for (i=0;i<rs.fields.count;i++)
+   {td=tr.insertCell(tr.cells.length);td.innerText=rs.fields(i);
+   }
+  }
+}
+
+function filter()
+{
+   f = ""
+   for (i = 0; i < fs.count; i ++ )
+   {
+      fl = fs(i).name;
+      f_fl = eval("f_" + fl).value;
+      f += f_fl == "" ? "" : (f == "" ? "" : " & ") + fl + "=" + f_fl+"";
+   }
+   DSO.Filter = f;
+   DSO.Reset();
+   Move(1);
+}
+function sort(column)
+{
+   	s="";
+	  for (i=0;i<fs.count;i++)
+	  {
+      fl = fs(i).name;
+      flv=document.getElementById(fl);
+      switch(flv.innerText.charAt(0))
+      {
+     	 case '+':
+     	  if (column.id==fl)
+     	  {flv.innerText='-'+flv.innerText.slice(1);s+=(s==""?"":",")+"-"+fl;}
+     	  else {s+=(s==""?"":", ")+"+"+fl;}
+     	  break;
+     	 case '-':
+     	  if (column.id==fl)
+     	  {flv.innerText=' '+flv.innerText.slice(1);}
+     	  else {s+=(s==""?"":", ")+"-"+fl;}
+     	  break;
+     	 case ' ':
+     	  if (column.id==fl)
+     	  {flv.innerText='+'+flv.innerText.slice(1);s+=(s==""?"":",")+"+"+fl;}
+     	  break;
+      }
+    }
+    DSO.Sort = s;
+    DSO.Reset();
+    Move(1);
+}
+
+function thead()
+{
+   rs=DSO.recordset;
+   fs=rs.fields;
+   t=document.getElementById('thead');
+   while (t.rows.length>0)	{t.deleteRow(0);};
+ 	 tr=t.insertRow(t.rows.length);
+   tr.setAttribute("align","middle");
+	 td=tr.insertCell(0);
+	 td.innerHTML=
+	 "<INPUT TYPE='BUTTON' VALUE='|<' ONCLICK='Move(1)'><br>"+
+   "<INPUT TYPE='BUTTON' VALUE='<<' ONCLICK='Move(2)'><br>"+
+   "<INPUT TYPE='BUTTON' VALUE='>>' ONCLICK='Move(3)'><br>"+
+   "<INPUT TYPE='BUTTON' VALUE='>|' ONCLICK='Move(4)'>";
+	 for (i=0;i<fs.count;i++)
+	 {
+     fn=fs(i).name;
+	   td=tr.insertCell(tr.cells.length);
+   	 td.innerHTML=
+   	 "<div id="+fn+
+   	 " onclick=sort("+fn+")>"+
+   	 "&nbsp;"+fs(i)+
+   	 "</div><br>"+
+     "<input type=text id=f_"+fn+
+     " onchange=filter()></input>";
+   }
+}
+
+function DataURL()
+{
+   t=document.getElementById('dso_t');
+<!--   alert(navigator.appName+" "+t.options[t.selectedIndex].value); -->
+   DSO.DataURL=t.options[t.selectedIndex].value;
+   DSO.Reset();
+   thead();
+   Move(1);
+}
+</script>
+<!-- <script event=onbeforeunload>alert("event=onbeforeunload");</script> -->
+<!-- события элементов потребления данных -->
+<script for=DSO event=ondatasetchanged>Move(1);</script>
+<!-- <script for=DSO event=ondataavailable>alert("event=ondataavailable");</script> -->
+<!-- <script for=DSO event=ondatasetcomplete>alert("event=ondatasetcomplete reason="+event.reason);</script> -->
+<!-- <script for=DSO event=onrowenter>alert("event=onrowenter");</script> -->
+<!-- <script for=DSO event=onrowexit>alert("event=onrowexit");</script> -->
+<!-- события элементов потребления данных -->
+<!-- <script for=tbl event=onbeforeupdate>alert("event=onbeforeupdate");</script> -->
+<!-- <script for=tbl event=onafterupdate>alert("event=onafterupdate");</script> -->
+<!-- <script for=tbl event=onerrorupdate>alert("event=onerrorupdate");</script> -->
+</head>
+<body onload="if (navigator.appname=="Microsoft Internet Explorer")DataURL()">
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr><table><tr><td width=90%>
+<a href="http://personalhistory.ru">Домой</a> <a href="http://greg20111.domain.com">greg20111</a> <a href="http://abv.byethost24.com">abv</a> <a href="http://boris.auchat.ru">boris</a> <!-- <a href="http://1917.brinkster.net/">1917</a> <a href="http://history.h15.ru/">h15</a> --> <a href="http://personalhistory.ru/forum/index.php">Форум</a> <a href="http://personalhistory.ru/forum_old/index.html">Архив форума</a> <a href="http://spiski-ru.blogspot.com/">Блог</a> <a href="http://personalhistory.ru/db/db.php">SQL-Базы</a> <a target="_blank" href="/dso.htm">DSO-базы</a> <a target="_blank" href="/geno.htm">Гено-базы</a> <a target="_blank" href="/projects/index.html">Проекты</a> <a target="_blank" href="/papers/">Статьи</a> <a target="_blank" href="/docs.htm">Документы</a> <a target="_blank" href="/booksNL.htm">Книги</a> <a href="http://personalhistory.ru/chat.htm">Чат</a> <a href="http://personalhistory.ru/rss.xml"><img align=absmiddle src=http://personalhistory.ru/rss.gif></a> <a target="_blank" href="/email.htm" target='_blank'>Письмо автору</a>
+</td><td width=10%><script type="text/javascript" src="/orphus/orphus.js"><xsl:text>javascript here</xsl:text></script>
+<a href="http://orphus.ru" id="orphus" target="_blank"><img alt="Система Orphus" src="/orphus/Oleg_Fadjarov_btn1.gif" border="0" width="257" height="48" /></a>
+</td></tr></table><hr>
+<p>17.02.10 <b>Внимание!</b> База в нынешнем виде работает только в броузере Microsoft Internet Explorer.
+<form>
+ <center>Выбор базы
+ 	<select id=dso_t onChange="if (navigator.appname=="Microsoft Internet Explorer")DataURL()">
+	 <option selected value="dso/okz.txt">Список лиц, награжденных орденом Красного Знамени 1919-1926</option>
+	 <option value="dso/os.txt">Кавалеры ордена Славы трех степеней</option>
+	 <option value="dso/01-01-2010.txt">КП Новосибирской области (по состоянию на 01.01.2010)</option>
+	 <option value="dso/kp-nn.txt">КП Нижегородской области</option>
+	 <option value="dso/hirson.txt">Захоронение русских военнопленных 1914-1918 на кладбище Ирсон (Франция)</option>
+  </select>
+ </center>
+</form>
+Стрелки левой верхней клетки - для передвижения по списку, если он окажется длиннее 10 записей.
+<br>Если нажать мышкой на название одной или нескольких колонок, то список будет по этой колонке отсортирован (при первом нажатии появится знак '+', означающий сортировку по возрастанию; при втором нажатии - знак '+' заменится на знак '-', означающий сортировку по убыванию; после третьего нажатия знак '-' исчезнет, что отменяет сортировку по текущей колонке). При сортировке по нескольким колонкам сначала список сортируется по левой из колонок, отмеченных знаком '+' или '-', а при совпадении значения в этой колонке список сортируется по значению в следующей колонке отмеченной знаком '+' или '-', и т.д.
+<br>Если в клетке под названием одной или неск. колонок задать строку поиска (и вывести курсор мышки из этой клетки), то список будет отфильтрован. Например, если под колонкой Фамилия задать Ба*инский, то найдутся и Бажинский, и Баранинский, и Барчинский
+<table id=tbl border=1>
+<thead id=thead></thead>
+<tbody id=tbody></tbody>
+</table>
+<object id="DSO" CLASSID = 'clsid:333C7BC4-460F-11D0-BC04-0080C7055A83'>
+ <PARAM NAME="DataURL" value="dso/okz.txt">
+ <PARAM NAME="UseHeader" VALUE="false">
+ <PARAM NAME="TextQualifier" VALUE="">
+ <PARAM NAME="FieldDelim" VALUE="|">
+</object>
+<hr><table><tr><td width=90%>
+<a href="http://personalhistory.ru">Домой</a> <a href="http://greg20111.domain.com">greg20111</a> <a href="http://abv.byethost24.com">abv</a> <a href="http://boris.auchat.ru">boris</a> <!-- <a href="http://1917.brinkster.net/">1917</a> <a href="http://history.h15.ru/">h15</a> --> <a href="http://personalhistory.ru/forum/index.php">Форум</a> <a href="http://personalhistory.ru/forum_old/index.html">Архив форума</a> <a href="http://spiski-ru.blogspot.com/">Блог</a> <a href="http://personalhistory.ru/db/db.php">SQL-Базы</a> <a target="_blank" href="/dso.htm">DSO-базы</a> <a target="_blank" href="/geno.htm">Гено-базы</a> <a target="_blank" href="/projects/index.html">Проекты</a> <a target="_blank" href="/papers/">Статьи</a> <a target="_blank" href="/docs.htm">Документы</a> <a target="_blank" href="/booksNL.htm">Книги</a> <a href="http://personalhistory.ru/chat.htm">Чат</a> <a href="http://personalhistory.ru/rss.xml"><img align=absmiddle src=http://personalhistory.ru/rss.gif></a> <a target="_blank" href="/email.htm" target='_blank'>Письмо автору</a>
+</td><td width=10%><script type="text/javascript" src="/orphus/orphus.js"><xsl:text>javascript here</xsl:text></script>
+<a href="http://orphus.ru" id="orphus" target="_blank"><img alt="Система Orphus" src="/orphus/Oleg_Fadjarov_btn1.gif" border="0" width="257" height="48" /></a>
+</td></tr></table><hr>
+Комментарии приветствуются <a href="mailto:webmaster@personalhistory.ru">webmaster@personalhistory.ru</a>.
+<br>&copy; 2010 Борис Алексеев. Использование, иное, чем для персональных образовательных целей, требует согласования.
+<br><b><font size=-1>Окно в DSO-базу данных. Версия 2 от 17.02.2010 13:17:01</font></b>
+</body>
+</html>

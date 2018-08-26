@@ -1,0 +1,83 @@
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+  <title>Загрузка сканов с сайта http://www.bibliofika.ru/</title>
+<script type="text/javascript">
+
+function readCookie(name) {
+ var out = null;
+ var nameEQ = name+"=";
+ var ca = document.cookie.split(';');
+ for(var i=0;i<ca.length;i++) {
+  var c=ca[i];
+  while(c.charAt(0)===' ') c=c.substring(1,c.length);
+  if(c.indexOf(nameEQ)===0) {
+   var st = unescape(c.substring(nameEQ.length,c.length));
+   if(st) out = st;
+  }
+ }
+ return out;
+}
+
+function pageSid(sid, n) {
+    ccd = "1qazxsw23edcvfr45tgbnhy67ujmki89olp0";
+    n = n + 2;
+    lc = 36;
+    d = n - (Math.floor(n / lc) * lc);
+    nsid = "";
+    i = 0;
+    while (i < 32) {
+        ch = sid.charAt(i);
+        k = ccd.indexOf(ch) + d;
+        if (k >= lc) {
+            k = k - lc;
+        }
+        nsid = nsid + ccd.charAt(k);
+        i++;
+    }
+    return(nsid);
+}
+
+// http://www.bibliofika.ru/book.php?book=896
+// <param name="movie" value="telib.swf?user_sid=n2mv57b20i4310l4deui5hv2ejc9lh45&locnb=35" />
+// http://www.bibliofika.ru/bookinf.php?user_sid=n2mv57b20i4310l4deui5hv2ejc9lh45&locnb=35
+// <book title="Том 5 часть 2. Учреждения, недвижимости и капиталы Московского Купеческого общества." height="1000" width="696" npages="634" fpage="5" pagesOnScr="2" imgwhr="1200" perm="">
+
+// http://www.bibliofika.ru/book.php?book=3484
+// <param name="movie" value="telib.swf?user_sid=n2mv57b20i4310l4deui5hv2ejc9lh45&locnb=37" />
+// http://www.bibliofika.ru/bookinf.php?user_sid=n2mv57b20i4310l4deui5hv2ejc9lh45&locnb=37
+// <book title="" height="1000" width="1290" npages="32" fpage="0" pagesOnScr="1" imgwhr="2000" perm="">
+
+function open_win(){
+	window.open("http://www.bibliofika.ru/book.php?book="+document.getElementById("bookNo").value)
+}
+
+function open_page(){
+ var npages = parseInt(document.getElementById("npages").value);
+ var ses_id=document.getElementById("PHPSESSID").value;
+ var locnb=document.getElementById("locnb").value;
+ //window.open("http://www.bibliofika.ru/page.php?user_sid="+pageSid(ses_id,pageNo)+"&locnb="+locnb+"&p="+pageNo)
+ var mas=[];
+ for (var i=0;i<npages;i++){
+ 	mas.push("http://www.bibliofika.ru/page.php?user_sid="+pageSid(ses_id,i)+"&locnb="+locnb+"&p="+i);
+	}
+ var str = mas.join('<br>');
+ document.getElementById("partners").innerHTML=str;
+}
+	
+</script>
+
+</head>
+ 
+<body marginheight="0"  leftmargin="0" marginwidth="0" scroll="auto">
+ 
+Книга <input id="bookNo" value="3484">
+PHPSESSID <input id="PHPSESSID" value="n2mv57b20i4310l4deui5hv2ejc9lh45">
+locnb <input id="locnb" value="24">
+npages <input id="npages" value="32">
+<button id="book" onClick="open_win()">Сканы книги</button>
+<button id="page" onClick="open_page()">Скан страницы</button>
+<div id="partners">
+ </div>
+
+</body>
+</html>

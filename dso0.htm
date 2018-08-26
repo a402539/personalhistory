@@ -1,0 +1,159 @@
+<html>
+<head>
+<script>
+function Move(where)
+{
+  var shift=0,size=10;
+  rs=DSO.recordset;if(rs.AbsolutePosition==undefined) rs.MoveFirst();
+  switch (where) {
+  	case 1:
+  	 if(!rs.BOF)rs.MoveFirst();break;
+  	case 2:
+  	 if(rs.EOF) {rs.MoveLast();shift=1;}
+  	 if(rs.AbsolutePosition<=2*size-shift) rs.AbsolutePosition=1;
+  	 else rs.AbsolutePosition-=2*size-shift;
+  	 break;
+  	case 3:
+  	 if(rs.EOF) 
+  	 {rs.MoveLast();
+   	  if(rs.AbsolutePosition<size) rs.AbsolutePosition=1;
+  	  else rs.AbsolutePosition-=size-1;
+  	 }
+  	 break;
+  	case 4:
+  	 rs.MoveLast();
+  	 if(rs.AbsolutePosition<size) rs.AbsolutePosition=1;
+  	 else rs.AbsolutePosition-=size-1;
+  	 break;
+    default:return;
+  };
+  t=document.getElementById('tbody');
+  while (t.rows.length>0)	{t.deleteRow(0);};
+  for (j=0;!rs.EOF & j<size;rs.moveNext(),j++)
+  {
+ 	 tr=t.insertRow(t.rows.length);
+ 	 td=tr.insertCell(tr.cells.length);td.innerText=rs.AbsolutePosition;
+   for (i=0;i<rs.fields.count;i++)
+   {td=tr.insertCell(tr.cells.length);td.innerText=rs.fields(i);
+   }
+  }
+}
+function filter()
+{
+   fs=DSO.recordset.fields;
+   f = ""
+   for (i = 0; i < fs.count; i ++ )
+   {
+      fl = fs(i).name;
+      f_fl = eval("f_" + fl).value;
+      f += f_fl == "" ? "" : (f == "" ? "" : " & ") + fl + '=' + f_fl;
+   }
+   DSO.Filter = f;
+   DSO.Reset();
+   Move(1);
+}
+function sort(column)
+{
+   	fs=DSO.recordset.fields;
+   	s="";
+	  for (i=0;i<fs.count;i++)
+	  {
+      fl = fs(i).name;
+      flv=document.getElementById(fl);
+      switch(flv.innerText.charAt(0))
+      {
+     	 case '+':
+     	  if (fl==column)
+     	  {flv.innerText="-"+fl;s+=(s==""?"":",")+"-"+fl;}
+     	  else {s+=(s==""?"":", ")+"+"+fl;}
+     	  break;
+     	 case '-':
+     	  if (fl==column)
+     	  {flv.innerText=fl;}
+     	  else {s+=(s==""?"":", ")+"-"+fl;}
+     	  break;
+     	 default:
+     	  if (fl==column)
+     	  {flv.innerText="+"+fl;s+=(s==""?"":",")+"+"+fl;}
+     	  break;
+      }
+    }
+    DSO.Sort = s;
+    DSO.Reset();
+    Move(1);
+}
+
+function thead()
+{
+   fs=DSO.recordset.fields;
+   t=document.getElementById('thead');
+   while (t.rows.length>0)	{t.deleteRow(0);};
+ 	 tr=t.insertRow(t.rows.length);
+   tr.setAttribute("align","middle");
+	 td=tr.insertCell(0);
+	 td.innerHTML=
+	 "<INPUT TYPE='BUTTON' VALUE='|<' ONCLICK='Move(1)'><br>"+
+   "<INPUT TYPE='BUTTON' VALUE='<<' ONCLICK='Move(2)'><br>"+
+   "<INPUT TYPE='BUTTON' VALUE='>>' ONCLICK='Move(3)'><br>"+
+   "<INPUT TYPE='BUTTON' VALUE='>|' ONCLICK='Move(4)'>";
+	 for (i=0;i<fs.count;i++)
+	 {
+     fl = fs(i).name;
+	   td=tr.insertCell(tr.cells.length);
+   	 td.innerHTML="<div id='"+
+      fl+"' onclick=sort('"+
+      fl+"')>"+fl+"</div><br>"+
+      "<input type=text id=f_" + fl+
+     " onchange=filter()></input>";
+   }
+}
+
+function DataURL()
+{
+   t=document.getElementById('dso_t');
+   DSO.DataURL=t.options[t.selectedIndex].value;
+   DSO.Reset();
+   thead();
+   Move(1);
+}
+</script>
+<script event=onbeforeunload>alert("event=onbeforeunload");</script>
+<!-- событи€ элементов потреблени€ данных -->
+<script for=DSO event=ondatasetchanged>Move(1);</script>
+<!-- <script for=DSO event=ondataavailable>alert("event=ondataavailable");</script> -->
+<!-- <script for=DSO event=ondatasetcomplete>alert("event=ondatasetcomplete reason="+event.reason);</script> -->
+<!-- <script for=DSO event=onrowenter>alert("event=onrowenter");</script> -->
+<!-- <script for=DSO event=onrowexit>alert("event=onrowexit");</script> -->
+<!-- событи€ элементов потреблени€ данных -->
+<script for=tbl event=onbeforeupdate>alert("event=onbeforeupdate");</script>
+<script for=tbl event=onafterupdate>alert("event=onafterupdate");</script>
+<script for=tbl event=onerrorupdate>alert("event=onerrorupdate");</script>
+</head>
+<body onload="DataURL()">
+<hr>
+<form>
+ <center>¬ыбор базы
+ 	<select id=dso_t value="dso/01-01-2010.txt" onChange="DataURL()">
+	 <option value="dso/01-01-2010.txt"> ѕ Ќовосибирской области</option>
+	 <option value="dso/okz.txt">—писок лиц, награжденных орденом  расного «намени 1919-1926</option>
+	 <option value="dso/os.txt"> авалеры ордена —лавы трех степеней</option>
+	 <option value="dso/kp-nn.txt"> ѕ Ќижегородской области</option>
+  </select>
+ </center>
+</form>
+—трелки левой верхней клетки - дл€ передвижени€ по списку, если он окажетс€ длиннее 10 записей.
+<br>≈сли нажать мышкой на название одной или нескольких колонок, то список будет по этой колонке отсортирован (при первом нажатии по€витс€ знак '+', означающий сортировку по возрастанию; при втором нажатии - знак '+' заменитс€ на знак '-', означающий сортировку по убыванию; после третьего нажати€ знак '-' исчезнет, что отмен€ет сортировку по текущей колонке). ѕри сортировке по нескольким колонкам сначала список сортируетс€ по левой из колонок, отмеченных знаком '+' или '-', а при совпадении значени€ в этой колонке список сортируетс€ по значению в следующей колонке отмеченной знаком '+' или '-', и т.д.
+<br>≈сли в клетке под названием одной или неск. колонок задать строку поиска (и вывести курсор мышки из этой клетки), то список будет отфильтрован. Ќапример, если под колонкой ‘амили€ задать Ѕа*инский, то найдутс€ и Ѕажинский, и Ѕаранинский, и Ѕарчинский
+<table id=tbl border=1>
+<thead id=thead></thead>
+<tbody id=tbody></tbody>
+</table>
+<object id="DSO" CLASSID = 'clsid:333C7BC4-460F-11D0-BC04-0080C7055A83'>
+ <PARAM NAME="DataURL" value="dso/01-01-2010.txt">
+ <PARAM NAME="UseHeader" VALUE="TRUE">
+ <PARAM NAME="TextQualifier" VALUE="">
+ <PARAM NAME="FieldDelim" VALUE="|">
+</object>
+<hr><b><font size=-1>ќкно в DSO-базу данных. ¬ерси€ 2 от 08.01.2010 0:05:56</font></b>
+</body>
+</html>

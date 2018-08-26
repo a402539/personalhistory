@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Language" content="en-us">
+<META http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<TITLE>Test Form</TITLE>
+</HEAD>
+<BODY>
+
+<?php
+ phpinfo();
+?>
+
+<!-- This line starts the form, ACTION is the page you are sending the form values to, Method should be set to POST or GET, NAME is not required unless you have more than one form or is recomended you are using JavaScript to change form properities-->
+
+<FORM action="formProcessing.php" method="POST">
+
+<!-- The 'P' tags are only used to separate the form elements on the page, they are not required -->
+
+<P><TEXTAREA rows="2" name="TEXTAREA" cols="20">This is where you can place the default text at.</TEXTAREA></P>
+<P><INPUT type="text" name="text" size="20"></P>
+<P><INPUT type="password" name="password" size="20"></P>
+<P><INPUT type="checkbox" name="checkbox" value="ON"></P>
+<P><INPUT type="radio" value="choiceOne" checked name="radioButtons"><INPUT type="radio" name="radioButtons" value="choiceTwo"></P>
+<P><INPUT type="button" value="ButtonName" name="button"></P>
+
+<!-- submit does just that, it submits the form, Reset clears the form values on the page. -->
+
+<P><INPUT type="submit" value="Submit"></P>
+<P><INPUT type="reset" value="Reset"></P>
+</FORM>
+</BODY>
+</HTML>

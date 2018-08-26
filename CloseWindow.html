@@ -1,0 +1,26 @@
+<Html>
+<!-- https://learn.javascript.ru/introduction-browser-events -->
+<head>
+</head>
+<body onLoad="javascript: alert('Сейчас окно будет закрыто!'); window.close();"> <!-- Закрытие окна после загрузки без показа -->
+
+<h1>Hello, world</h1>
+
+<input value="1 Нажми меня" onclick="alert('Клик!')" type="button">
+
+<input id="elem1" type="button" value="2 Нажми меня" />
+<script>
+  elem1.onclick = function() {
+    alert( 'Спасибо' );
+  };
+</script>
+
+<input type="button" id="elem2" onclick="alert('До')" value="3 Нажми меня" />
+<script>
+  elem2.onclick = function() { // перезапишет существующий обработчик
+    alert( 'После' ); // выведется только это
+  };
+</script>
+
+</body>
+</Html>

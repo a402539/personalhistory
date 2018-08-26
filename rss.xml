@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<rss xmlns:yandex="http://personalhistory.ru" version="2.0">
+  <channel>
+    <title>Новости: personalhistory.ru</title>
+	<link>http://personalhistory.ru/</link>
+	<description>PERSONALHISTORY - Персональная история русскоязычного мира.</description>
+    <image xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:lego="http://russianbrides.com.au/love">
+      <url>http://personalhistory.ru</url>
+      <link>http://personalhistory.ru</link>
+      <title>Новости: Персональная история русскоязычного мира</title>
+    </image>
+	<language>ru</language>
+<lastBuildDate>17.01.2011 20:36:01</lastBuildDate>
+
+    <item>
+     <title>Электронная Книга Памяти Украины</title>
+     <link>http://personalhistory.ru/knigi.htm</link>
+     <description>В рамках проекта <a href="http://personalhistory.ru/knigi.htm">"Электронные книги памяти"</a> добавлен ресурс <a href="http://www.memory-book.com.ua/">Электронная Книга Памяти Украины</a><br>Пока в базе данных около 270 тыс. персоналий, но создатели сайта намерены ввести в базу данные 200 книг памяти Украины.</description>
+     <pubDate>Mon, 17 Jan 2011 20:36:01 +0300</pubDate>
+     <pubDateUT></pubDateUT>
+     <category>Новости сайта</category>
+     <guid>http://personalhistory.ru/knigi.htm</guid>
+    </item>
+
+    <item>
+     <title>Раскладка клавиатуры "Русская дореволюционная"</title>
+     <link>http://personalhistory.ru/1914-1918/rus1917.rar</link>
+     <description>Раскладка клавитуры "Русская дореволюционная"	<a href="http://personalhistory.ru/1914-1918/rus1917.rar">http://personalhistory.ru/1914-1918/rus1917.rar</a> позволяет набивать дореволюционные буквы (и еще три символа) &#x406;, &#x456;, &#x462;, &#x463;, &#x472;, &#x473;, &#x474;, &#x475;, &#x2020;, &#x00AB;, &#x00BB; с помощью комбинации клавиши AltGr (правая клавиша Alt) и кнопки клавиатуры, на которой нарисованы, соответственно, следующие русские буквы и символы: и, е, ф, в, +, " (инструкция по установке находится в файле index.html архива rus1917.rar)</description>
+     <pubDate>Sat, 15 Jan 2011 14:56:05 +0300</pubDate>
+     <pubDateUT></pubDateUT>
+     <category>Новости сайта</category>
+     <guid>http://personalhistory.ru/1914-1918/index.html</guid>
+    </item>
+
+    <item>
+     <title>Новостная лента</title>
+     <link>http://personalhistory.ru/rss.htm</link>
+     <description>Появилась новостная лента &lt;a href="http://personalhistory.ru/rss.htm"&gt;http://personalhistory.ru/rss.htm&lt;/a&gt;</description>
+     <pubDate>Fri, 7 Jan 2011 06:13:57 +0300</pubDate>
+     <pubDateUT></pubDateUT>
+     <category>Новости сайта</category>
+     <guid>http://personalhistory.ru/rss.htm</guid>
+    </item>
+
+    <item>
+     <title>Видео-чат</title>
+     <link>http://personalhistory.ru/chat.htm</link>
+     <description>Милости просим в видео-чат &lt;a href="http://personalhistory.ru/chat.htm"&gt;http://personalhistory.ru/chat.htm&lt;/a&gt;</description>
+     <pubDate>Fri, 7 Jan 2011 06:13:55 +0300</pubDate>
+     <pubDateUT></pubDateUT>
+     <category>Новости сайта</category>
+     <guid>http://personalhistory.ru/chat.htm</guid>
+    </item>
+
+    <item>
+     <title>Изменения в орбитальной группировке</title>
+     <link>http://personalhistory.ru</link>
+     <description>Главный сайт &lt;a href="http://personalhistory.ru"&gt;http://personalhistory.ru&lt;/a&gt;, зеркала &lt;a href="http://1917.brinkster.net"&gt;http://1917.brinkster.net&lt;/a&gt;, &lt;a href="http://abv.byethost24.com"&gt;http://abv.byethost24.com&lt;/a&gt;, &lt;a href="http://history.h15.ru"&gt;http://history.h15.ru&lt;/a&gt;</description>
+     <pubDate>Fri, 7 Jan 2011 06:13:53 +0300</pubDate>
+     <pubDateUT></pubDateUT>
+     <category>Новости сайта</category>
+     <guid>http://personalhistory.ru</guid>
+    </item>
+
+</channel></rss>
